@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#3A0D2D">
+<meta name="description" content="La Perfuma Goloso by VSP — The VSPellbinding Eightfold. Offline booth grimoire.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>La Perfuma Goloso · 八重诱惑</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<script src="theme.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="lang-en" data-kiosk="off">
+
+<!-- ============ ORNAMENT SPRITE (single source: edit symbols here) ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="corner-a" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+      <path d="M8 92 C8 52 24 30 66 28 M18 92 C18 58 32 38 66 36 M8 92 C30 92 38 84 38 70"/>
+      <circle cx="38" cy="70" r="3" fill="currentColor" stroke="none"/>
+      <circle cx="66" cy="28" r="3" fill="currentColor" stroke="none"/>
+      <path d="M66 28 C78 27 84 21 85 11" stroke-dasharray="1 5"/>
+    </g>
+  </symbol>
+  <symbol id="divider" viewBox="0 0 300 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M6 12 H118 M182 12 H294"/>
+      <path d="M126 12 c4-6 10-6 14 0 c-4 6-10 6-14 0z" fill="currentColor" stroke="none"/>
+      <circle cx="150" cy="12" r="4.6"/>
+      <circle cx="150" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+      <path d="M174 12 c-4-6-10-6-14 0 c4 6 10 6 14 0z" fill="currentColor" stroke="none"/>
+    </g>
+  </symbol>
+  <symbol id="moon-arc" viewBox="0 0 400 40">
+    <g fill="currentColor">
+      <circle cx="20" cy="20" r="5" opacity=".25"/>
+      <circle cx="60" cy="20" r="5" opacity=".45"/>
+      <circle cx="100" cy="20" r="5" opacity=".65"/>
+      <circle cx="140" cy="20" r="5" opacity=".85"/>
+      <circle cx="180" cy="20" r="5"/>
+      <circle cx="220" cy="20" r="5" opacity=".85"/>
+      <circle cx="260" cy="20" r="5" opacity=".65"/>
+      <circle cx="300" cy="20" r="5" opacity=".45"/>
+      <circle cx="340" cy="20" r="5" opacity=".25"/>
+    </g>
+  </symbol>
+  <symbol id="sigil-circle" viewBox="0 0 200 200">
+    <g fill="none" stroke="currentColor">
+      <circle cx="100" cy="100" r="92" stroke-width="1"/>
+      <circle cx="100" cy="100" r="78" stroke-width="1" stroke-dasharray="2 6"/>
+      <circle cx="100" cy="100" r="64" stroke-width="1"/>
+      <path d="M100 8 L100 36 M100 164 L100 192 M8 100 L36 100 M164 100 L192 100" stroke-width="1"/>
+      <path d="M100 36 L155 100 L100 164 L45 100 Z" stroke-width="1.2"/>
+      <path d="M55 55 L145 145 M145 55 L55 145" stroke-width=".7" opacity=".55"/>
+      <circle cx="100" cy="100" r="30" stroke-width="1.2" stroke-dasharray="1 4"/>
+    </g>
+  </symbol>
+  <symbol id="crystal-ball" viewBox="0 0 120 120">
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="60" cy="52" r="38"/>
+      <path d="M34 78 c8 8 44 8 52 0" opacity=".6"/>
+      <path d="M38 34 a38 38 0 0 1 26-14" stroke-width="1.4" opacity=".8"/>
+      <path d="M28 104 h64 M34 104 c2-8 8-12 26-12 s24 4 26 12"/>
+      <circle cx="48" cy="40" r="3" fill="currentColor" stroke="none" opacity=".7"/>
+    </g>
+  </symbol>
+  <symbol id="flame" viewBox="0 0 40 64">
+    <g fill="currentColor">
+      <path d="M20 2 C28 14 34 22 34 34 a14 14 0 0 1-28 0 C6 22 12 14 20 2z"/>
+      <path d="M20 18 c4 6 7 10 7 16 a7 7 0 0 1-14 0 c0-6 3-10 7-16z" fill="rgba(255,255,255,.75)" stroke="none"/>
+    </g>
+  </symbol>
+  <symbol id="resonance" viewBox="0 0 120 120">
+    <g fill="none" stroke="currentColor">
+      <circle cx="60" cy="60" r="14" stroke-width="2"/>
+      <circle cx="60" cy="60" r="30" stroke-width="1.4" opacity=".7"/>
+      <circle cx="60" cy="60" r="46" stroke-width="1" opacity=".45"/>
+      <circle cx="60" cy="60" r="58" stroke-width=".8" opacity=".25"/>
+    </g>
+  </symbol>
+  <symbol id="moon-toggle" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+      <path d="M13.4 3.4a8.6 8.6 0 1 0 7.2 12.9A9.5 9.5 0 0 1 13.4 3.4z"/>
+      <circle cx="18.6" cy="6.4" r=".9" fill="currentColor" stroke="none"/>
+      <circle cx="21" cy="10.8" r=".7" fill="currentColor" stroke="none"/>
+    </g>
+  </symbol>
+  <symbol id="chime" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+      <path d="M12 3v3M12 3c-2 1.6-3 3.4-3 5.4C9 12 10.2 14 12 16c1.8-2 3-4 3-4.6 0-2-1-3.8-3-5.4z"/>
+      <path d="M5 16.5c2.2 2.6 4.6 3.9 7 3.9s4.8-1.3 7-3.9"/>
+      <path d="M4.4 12.8l-1.6 1.2M19.6 12.8l1.6 1.2" opacity=".7"/>
+    </g>
+  </symbol>
+  <!-- nav sigils -->
+  <symbol id="nav-grimoire" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <path d="M4 5.5C6.5 4 9.5 4 12 5.5c2.5-1.5 5.5-1.5 8 0V19c-2.5-1.5-5.5-1.5-8 0-2.5-1.5-5.5-1.5-8 0z"/>
+      <path d="M12 5.5V19"/>
+    </g>
+  </symbol>
+  <symbol id="nav-crystal" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6">
+      <circle cx="12" cy="10" r="6.4"/>
+      <path d="M5 20h14M6.6 20c.6-2.4 2.6-3.4 5.4-3.4s4.8 1 5.4 3.4" stroke-linecap="round"/>
+    </g>
+  </symbol>
+  <symbol id="nav-wheel" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <circle cx="12" cy="12" r="7.4"/>
+      <path d="M12 4.6v14.8M4.6 12h14.8M6.8 6.8l10.4 10.4M17.2 6.8L6.8 17.2"/>
+    </g>
+  </symbol>
+  <symbol id="nav-cabinet" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <rect x="4.5" y="4" width="15" height="16" rx="1.6"/>
+      <path d="M4.5 12h15M12 4v16"/>
+      <circle cx="10" cy="8" r=".8" fill="currentColor" stroke="none"/>
+      <circle cx="15" cy="16" r=".8" fill="currentColor" stroke="none"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ============ TOP BAR: the spellbook strip ============ -->
+<header class="topbar" id="topbar">
+  <button class="brandmark" id="brandmark" type="button" aria-label="VSP">
+    <img src="assets/logo.svg" alt="" aria-hidden="true">
+    <span class="brandmark-text">
+      <strong id="brandLine">La Perfuma Goloso</strong>
+      <em id="brandCollection">The VSPellbinding Eightfold 八重诱惑</em>
+    </span>
+  </button>
+
+  <nav class="mainnav" id="mainnav" aria-label="Primary">
+    <button class="navbtn" data-nav="home" type="button">
+      <span class="nav-ic" aria-hidden="true"><svg><use href="#nav-grimoire"/></svg></span>
+      <span data-i18n="nav.home"></span>
+    </button>
+    <button class="navbtn" data-nav="quiz" type="button">
+      <span class="nav-ic" aria-hidden="true"><svg><use href="#nav-crystal"/></svg></span>
+      <span data-i18n="nav.quiz"></span>
+    </button>
+    <button class="navbtn" data-nav="collection" type="button">
+      <span class="nav-ic" aria-hidden="true"><svg><use href="#nav-grimoire"/></svg></span>
+      <span data-i18n="nav.collection"></span>
+    </button>
+    <button class="navbtn" data-nav="seasons" type="button">
+      <span class="nav-ic" aria-hidden="true"><svg><use href="#nav-wheel"/></svg></span>
+      <span data-i18n="nav.seasons"></span>
+    </button>
+    <button class="navbtn" data-nav="picks" type="button">
+      <span class="nav-ic" aria-hidden="true"><svg><use href="#nav-cabinet"/></svg></span>
+      <span data-i18n="nav.picks"></span><b class="pickcount" id="pickCount" hidden>0</b>
+    </button>
+  </nav>
+
+  <div class="topcontrols">
+    <button class="iconbtn" id="ambienceToggle" type="button" aria-pressed="false" aria-label="ambience">
+      <svg aria-hidden="true"><use href="#chime"/></svg>
+    </button>
+    <button class="iconbtn" id="themeToggle" type="button" aria-label="theme">
+      <svg aria-hidden="true"><use href="#moon-toggle"/></svg>
+    </button>
+    <button class="langbtn" id="langToggle" type="button" aria-label="language" lang="zh">中文</button>
+  </div>
+</header>
+<div class="header-divider" aria-hidden="true"><svg><use href="#divider"/></svg></div>
+
+<!-- ============ MAIN ============ -->
+<main id="main">
+
+  <!-- HOME -->
+  <section class="screen" id="screen-home" aria-label="Home">
+    <div class="hero">
+      <div class="hero-card">
+        <div class="corner tl" aria-hidden="true"><svg><use href="#corner-a"/></svg></div>
+        <div class="corner br" aria-hidden="true"><svg><use href="#corner-a"/></svg></div>
+        <div class="hero-moons" aria-hidden="true"><svg><use href="#moon-arc"/></svg></div>
+        <div class="hero-sigil" aria-hidden="true"><svg><use href="#sigil-circle"/></svg></div>
+        <p class="hero-incant" data-i18n-text="brand.incantation"></p>
+        <h1 class="hero-title" id="heroTitle"><span data-i18n-text="brand.collection"></span></h1>
+        <p class="hero-tagline" data-i18n="home.hint"></p>
+        <div class="hero-actions">
+          <button class="btn btn-seal" data-nav="quiz" type="button"><span data-i18n="nav.quiz"></span></button>
+          <button class="btn btn-gold" data-nav="collection" type="button"><span data-i18n="nav.collection"></span></button>
+        </div>
+        <p class="hero-hearts" id="heroHearts"></p>
+      </div>
+      <div class="hero-shelf constellation" id="heroShelf" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="screen" id="screen-quiz" hidden aria-label="Divination">
+    <div class="quiz" id="quizRoot"></div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section class="screen" id="screen-collection" hidden aria-label="Collection">
+    <div class="filters" id="filtersBar">
+      <div class="filters-row filters-families" id="famChips" role="group" aria-labelledby="famChipsLabel">
+        <span class="filters-label" id="famChipsLabel" data-i18n="filters.families"></span>
+      </div>
+      <div class="filters-row filters-intensity" id="intTabs" role="tablist" aria-label="intensity">
+        <span class="filters-label" data-i18n="filters.feel"></span>
+      </div>
+      <div class="filters-meta">
+        <span id="filterCount" class="filter-count"></span>
+        <button class="btn btn-mini" id="filterClear" type="button" hidden><span data-i18n="filters.clearFam"></span></button>
+      </div>
+    </div>
+    <div class="grid" id="vialGrid"></div>
+  </section>
+
+  <!-- SEASONS -->
+  <section class="screen" id="screen-seasons" hidden aria-label="Seasons">
+    <div class="seasons" id="seasonsRoot"></div>
+  </section>
+
+  <!-- PICKS -->
+  <section class="screen" id="screen-picks" hidden aria-label="Your cabinet">
+    <div class="picks" id="picksRoot"></div>
+  </section>
+
+</main>
+
+<!-- ============ DETAIL OVERLAY (card flip) ============ -->
+<div class="overlay overlay-detail" id="detailOverlay" hidden role="dialog" aria-modal="true" aria-label="Vial card">
+  <div class="overlay-closebar">
+    <button class="btn btn-mini" id="detailPrev" type="button" aria-label="prev">‹</button>
+    <button class="btn btn-mini btn-close" id="detailClose" type="button" data-i18n="cards.close"></button>
+    <button class="btn btn-mini" id="detailNext" type="button" aria-label="next">›</button>
+  </div>
+  <div class="cardstage" id="cardStage">
+    <div class="bigcard" id="bigCard" tabindex="-1">
+      <div class="face face-front" id="cardFront">
+        <div class="corner tl" aria-hidden="true"><svg><use href="#corner-a"/></svg></div>
+        <div class="corner br" aria-hidden="true"><svg><use href="#corner-a"/></svg></div>
+        <button class="heartbtn" id="heartBtn" type="button" aria-label="heart"></button>
+        <div class="face-front-body">
+          <p class="vial-no" id="cfNo"></p>
+          <h2 class="vial-name" id="cfNameEn"></h2>
+          <p class="vial-name-zh" id="cfNameZh"></p>
+          <div class="vial-photo-wrap"><img id="cfPhoto" src="" alt=""></div>
+          <blockquote class="poem" id="cfPoem"></blockquote>
+        </div>
+      </div>
+      <div class="face face-back" id="cardBack" hidden>
+        <div class="corner tr" aria-hidden="true"><svg><use href="#corner-a"/></svg></div>
+        <div class="corner bl" aria-hidden="true"><svg><use href="#corner-a"/></svg></div>
+        <div class="face-back-body">
+          <p class="vial-no" id="cbNo"></p>
+          <h3 class="back-title" data-i18n="cards.spell"></h3>
+          <p class="spell" id="cbSpell"></p>
+          <p class="incant" data-i18n-text="cards.incant"></p>
+          <div class="formulabar" id="cbFormula" role="img" aria-label="formula"></div>
+          <dl class="specs">
+            <div><dt data-i18n="cards.intensity"></dt><dd id="cbIntensity"></dd></div>
+          </dl>
+          <div class="resonance" id="resonance" aria-hidden="true"><svg><use href="#resonance"/></svg></div>
+          <p class="hz-plaque" id="cbHz"></p>
+          <button class="btn btn-outline" id="hearBtn" type="button"><span data-i18n="cards.hearHz"></span></button>
+          <p class="foldnote" id="foldNote" hidden></p>
+          <button class="btn btn-gold" id="shareFromCard" type="button"><span data-i18n="cards.share"></span></button>
+        </div>
+      </div>
+    </div>
+    <button class="flipbtn" id="flipBtn" type="button"><span data-i18n="cards.flip"></span></button>
+  </div>
+</div>
+
+<!-- ============ SHARE OVERLAY ============ -->
+<div class="overlay overlay-share" id="shareOverlay" hidden role="dialog" aria-modal="true" aria-label="Talisman">
+  <div class="share-panel">
+    <h2 data-i18n="share.title"></h2>
+    <canvas id="shareCanvas" width="1080" height="1350"></canvas>
+    <div class="share-actions">
+      <button class="btn btn-gold" id="shareSave" type="button" data-i18n="share.download"></button>
+      <button class="btn btn-outline btn-close" id="shareClose" type="button" data-i18n="share.close"></button>
+    </div>
+    <p class="share-hint" id="shareHint"></p>
+    <div class="share-qrs">
+      <figure><img id="qrWechat" src="" alt=""><figcaption data-i18n="share.wechatOfficial"></figcaption></figure>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN MODAL ============ -->
+<div class="overlay overlay-admin" id="adminOverlay" hidden role="dialog" aria-modal="true" aria-label="Staff panel">
+  <div class="admin-panel">
+    <h2 data-i18n="admin.title"></h2>
+    <p id="adminMsg" data-i18n="admin.confirm"></p>
+    <div class="admin-actions">
+      <button class="btn btn-danger" id="adminReset" type="button" data-i18n="admin.reset"></button>
+      <button class="btn btn-outline btn-close" id="adminCancel" type="button" data-i18n="admin.cancel"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ATTRACT MODE ============ -->
+<div class="overlay overlay-attract" id="attractOverlay" hidden aria-label="attract">
+  <div class="attract-stage">
+    <div class="attract-flame" aria-hidden="true"><svg><use href="#flame"/></svg></div>
+    <img class="attract-photo" id="attractPhoto" src="" alt="">
+    <div class="attract-text">
+      <p class="attract-no" id="attractNo"></p>
+      <h2 class="attract-name" id="attractNameEn"></h2>
+      <p class="attract-name-zh" id="attractNameZh"></p>
+      <p class="attract-poem" id="attractPoem"></p>
+    </div>
+    <figure class="attract-qr">
+      <img id="attractQr" src="" alt="">
+      <figcaption data-i18n="share.wechatOfficial"></figcaption>
+    </figure>
+    <p class="attract-prompt"><span class="seal-dot" aria-hidden="true"></span><span data-i18n="home.begin"></span></p>
+  </div>
+</div>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="config.js"></script>
+<script src="data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/store.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/share.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/ratio-mixer.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/screens.js"></script>
+<script src="js/attract.js"></script>
+<script src="js/kiosk.js"></script>
+<script src="js/motes.js"></script>
+<script src="js/ambience.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
